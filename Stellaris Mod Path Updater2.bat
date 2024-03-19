@@ -1,0 +1,1 @@
+python C:\Users\Shadow\Documents\Paradox Interactive\Stellaris\mod\Stellaris Mod Path Updater.py
