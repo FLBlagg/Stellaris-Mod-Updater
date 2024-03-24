@@ -14,6 +14,8 @@ A simple python and batch file that runs a script to rename the "path=steam/comm
 - Navigate to your Stellaris mod folder (Documents/Paradox Interactive/Stellaris/Mod) and drop the .py file directly into the folder.
   
 # Run The File
+- Double click the file
+  ALTERNATIVE
 - Open Command Prompt (Windows) or Terminal (macOS/Linux).
 - Navigate to the directory where you saved your .py script. You can use the 'cd' command to change directories.
 - Run the script by typing "python SMPU.py" and press Enter.
