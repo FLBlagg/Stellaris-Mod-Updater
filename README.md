@@ -10,7 +10,7 @@ A simple python and batch file that runs a script to rename the "path=steam/comm
 - Replace 'C:/Users/...' in the script with the actual path to your mod folder.
 - (OPTIONAL/ONLY IF USING BAT FILE) Replace 'C:/Users/...' in the bat file with the path to the python script
 
-# Place the File
+# Place The File
 - Navigate to your Stellaris mod folder (Documents/Paradox Interactive/Stellaris/Mod) and drop the .py file directly into the folder.
   
 # Run The File
