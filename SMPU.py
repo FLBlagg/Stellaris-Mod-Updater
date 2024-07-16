@@ -1,8 +1,23 @@
 import os
 import re
 
-# Define the directory containing your .mod files
-mod_folder_path = r'C:\Users\Shadow\Documents\Paradox Interactive\Stellaris\mod'
+def find_stellaris_mod_folder():
+    # Check common locations for the Stellaris mod directory
+    possible_paths = [
+        os.path.expanduser(r'~/Documents/Paradox Interactive/Stellaris/mod'),
+        os.path.expanduser(r'~/OneDrive/Documents/Paradox Interactive/Stellaris/mod')
+    ]
+
+    for path in possible_paths:
+        if os.path.isdir(path):
+            return path
+
+    # If no path was found, prompt the user for the path
+    return input("Stellaris mod folder not found. Please enter the path to your Stellaris mod folder: ")
+
+# Find the Stellaris mod folder path
+mod_folder_path = find_stellaris_mod_folder()
+print(f"Using Stellaris mod folder path: {mod_folder_path}")
 
 # Regular expression pattern to find and capture the folder name in the path
 path_pattern = re.compile(r'path="workshop/content/\d+/(\d+)/"')
