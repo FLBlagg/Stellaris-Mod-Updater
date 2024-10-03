@@ -10,6 +10,6 @@ A simple python and batch file that runs a script to rename the "path=steam/comm
 # Tutorial: How to Use the Script and Modify the Path in the .bat File
 
 Step 1: Ensure Python is Installed
--Make sure Python is installed on your computer.
--You can check this by typing python --version in the Command Prompt.
--If Python is not installed or not added to your system PATH, you can download it from python.org.
+1. Make sure Python is installed on your computer.
+2. You can check this by typing python --version in the Command Prompt.
+3. If Python is not installed or not added to your system PATH, you can download it from python.org.
