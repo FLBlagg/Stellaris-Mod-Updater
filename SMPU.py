@@ -19,10 +19,8 @@ def find_stellaris_mod_folder():
 mod_folder_path = find_stellaris_mod_folder()
 print(f"Using Stellaris mod folder path: {mod_folder_path}")
 
-# Regular expression pattern to find and capture the folder name in the path
-path_pattern = re.compile(r'path="workshop/content/\d+/(\d+)/"')
-# Regular expression pattern to check if "path=mod/" already exists in the file
-mod_path_pattern = re.compile(r'path="mod/[^"]+"')
+# Updated regular expression to capture both mod paths and full paths with drive letters
+path_pattern = re.compile(r'path="([a-zA-Z]:/[^"]+|mod/[^"]+)"')
 
 def modify_file_path(file_path):
     print(f"Processing file: {file_path}")
@@ -35,18 +33,18 @@ def modify_file_path(file_path):
     print("Current file content:")
     print(content)
 
-    # Check if "path=mod/" already exists
-    if not mod_path_pattern.search(content):
-        print("Mod path not found. Attempting to replace or add path.")
+    # Check if a valid path ("mod/" or full drive path) already exists
+    if not path_pattern.search(content):
+        print("Valid path not found. Attempting to replace or add path.")
 
         # Function to replace the path in the file content
         def replacement(match):
             folder_name = match.group(1)  # Extract the folder name
-            print(f"Found workshop path with folder name: {folder_name}")
+            print(f"Found path with folder name: {folder_name}")
             return f'path="mod/{folder_name}"'
 
-        # Replace the path using the replacement function
-        modified_content = re.sub(path_pattern, replacement, content)
+        # Replace the path using the replacement function (if it's a workshop path)
+        modified_content = re.sub(r'path="workshop/content/\d+/(\d+)/"', replacement, content)
 
         # If no replacement was made, add the path attribute
         if modified_content == content:
